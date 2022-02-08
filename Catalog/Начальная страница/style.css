@@ -1,0 +1,192 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.header {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    background-color: #000;
+}
+ul li {
+    display: block;
+}
+h1 {
+    font-size: 30pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+}
+.menu {
+    display: grid;
+    grid-template-columns: repeat(6, 25%);
+    align-items: center;
+    justify-items: center;
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+.block-container { 
+    height: 652px;
+    background-color: #f0f1f5;
+}
+
+.img-header {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.footer {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: 55px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.text-container {
+    position: absolute;
+    left: 17%;
+    display: grid;
+    grid-template-columns: 17vw 17vw;  
+    grid-template-rows: 250% 50px; 
+    grid-column-gap: 115%;
+    font-size: 4vw;  
+    z-index: 100;
+}
+.text {
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.game-img {
+    width: 468px;
+    height: 303px;
+}
+.books-img {
+    width: 468px;
+    height: 313px;
+}
+.film-img {
+    width: 110%;
+    height: 110%;
+}
+.musik-img {
+    width: 468px;
+    height: 332px;
+}
+.mobile-img-header {
+    display: grid;
+    grid-template-columns: repeat(2, 303px);
+    grid-template-rows: repeat(2, 303px);
+    grid-column-gap: 80px;
+    margin-left: -150px;
+    margin-top: 25px;
+    z-index: 99;
+}
+@media (max-width: 1500px) {
+    .text-container {
+        grid-template-columns: 17vw 17vw;    
+    }
+}
+@media (max-width: 1300px) {
+    .text3 {
+        margin-left: 5%;
+    }
+}
+@media (max-width: 1100px) {
+    .header {
+        width: 100%;
+        position: fixed;
+        z-index: 1000;
+        
+    }
+    .menu {
+        display: none;
+    }
+    .text-container {
+        display: grid;
+        grid-template-columns: 20vw;
+        grid-template-rows: 303px 303px 313px; 
+    }
+    .block-container { 
+        height: 100%;
+        background-color: #f0f1f5;
+    }
+    .mobile-img-header {
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: repeat(1, 303px);
+        grid-template-rows: repeat(4, 303px);
+        margin-left: 300px;
+    }
+    .text {
+        margin-left: 5px;
+    }
+    .text1 {
+        margin-top: 50px;
+    }
+}
+@media (max-width: 870px) {
+    .header {
+        display: grid;
+        grid-template-columns: 92% 8%;
+        background-color: #000;
+    }
+}
+@media (max-width: 790px) {
+    .text-container {
+        left: 10%;
+    }
+    .mobile-img-header {
+        margin-left: 100px;
+    }
+}
+@media (max-width: 615px) {
+    .text-container {
+        left: 20%;
+        justify-items: center;
+    }
+    .mobile-img-header {
+        margin-left: 0px;
+    }
+}
+@media (max-width: 480px) {
+    .game-img {
+        width: 312px;
+        height: 203px;
+    }
+    .books-img {
+        width: 312px;
+        height: 208px;
+    }
+    .film-img {
+        width: 222px;
+        height: 222px;
+    }
+    .musik-img {
+        width: 312px;
+        height: 221px;
+    }
+    h1 {
+        font-size: 7.5vw;
+    }
+    .text-container {
+        margin-top: 40px;
+        grid-template-rows: 203px 208px 242px; 
+    }
+    .mobile-img-header {
+        grid-template-rows: 203px 208px 242px 221px;
+    }
+    .text1 {
+        margin-top: 0px;
+    }
+    .header {
+        height: 35px;
+    }
+}

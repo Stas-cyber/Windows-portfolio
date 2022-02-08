@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="checkbox.css">
+  <link rel="stylesheet" href="menu-style.css">
+  <link rel="stylesheet" href="player.css">
+  <title>Музыка</title>
+</head>
+
+<body>
+
+  <div class="container-block">
+
+
+    <div class="header">
+      <h1>Каталог без названия</h1>
+      <ul class="menu">
+        <li> <a href="./Страница с фильмами/index.html">Фильмы</a> </li>
+        <li> <a href="https://drive.google.com/uc?export=download&id=1WFtML4so4Ige-EHS9z-8V2SF6xNeJy7b"
+            target="_blank">Игры</a> </li>
+        <li> <a href="#">Книги</a> </li>
+        <li> <a href="#">Музыка</a> </li>
+      </ul>
+    </div>
+    <div class="hamburger">
+      <input id="menu__toggle" type="checkbox">
+      <label class="menu__btn" for="menu__toggle">
+        <span></span>
+      </label>
+
+      <ul class="menu__box">
+        <li><a class="menu__item" href="/Страница с фильмами/index.html">Фильмы</a> </li>
+        <li><a class="menu__item" href="#">Игры</a> </li>
+        <li><a class="menu__item" href="#">Книги</a> </li>
+        <li><a class="menu__item" href="#">Музыка</a> </li>
+      </ul>
+    </div>
+    <div class="menu-dropdown">
+      <div class="dropdown">
+        <button class="dropbtn">Жанр</button>
+        <div class="dropdown-content genre">
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-4" name="color-4" value="Рок">
+                <label class="label-dropdown" for="color-4">Рок</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-5" name="color-5" value="Рэп">
+                <label class="label-dropdown" for="color-5">Рэп</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-6" name="color-6" value="Классическая музыка">
+                <label class="label-dropdown" for="color-6">Классическая музыка</label>
+              </div>
+          <button class="btn-genre" ></button>
+        </div>
+    </div>  
+        <button class="dropbtn new">Новые</button>
+    <div class="dropdown">
+        <button class="dropbtn">Год выхода</button>
+        <div class="dropdown-content release">
+            <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-7" name="color-7" value="2021">
+                <label class="label-dropdown label-year" for="color-7">2021</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-8" name="color-8" value="2020">
+                <label class="label-dropdown label-year" for="color-8">2020</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-9" name="color-9" value="2019">
+                <label class="label-dropdown label-year" for="color-9">2019</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-10" name="color-10" value="2018">
+                <label class="label-dropdown label-year" for="color-10">2018</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-11" name="color-11" value="2017">
+                <label class="label-dropdown label-year" for="color-11">2017</label>
+              </div>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Оценки</button>
+        <div class="dropdown-content rating">
+            <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-12" name="color-12" value="5">
+                <label class="rating-label" for="color-12">5</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-13" name="color-13" value="4">
+                <label class="rating-label" for="color-13">4</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-14" name="color-14" value="3">
+                <label class="rating-label" for="color-14">3</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-15" name="color-15" value="2">
+                <label class="rating-label" for="color-15">2</label>
+              </div>
+              <div class="checkbox">
+                <input class="custom-checkbox" type="checkbox" id="color-16" name="color-16" value="1">
+                <label class="label-dropdown rating-label" for="color-16">1</label>
+              </div>
+        </div>
+    </div>
+    </div>
+    
+    <div class="container">
+      <div class="searh">
+        <input type="text" class="searh-input" value="Поиск книг по каталогу" onclick="this.select();">
+      </div>
+      <div class="audioplayer">
+        <div class="controls">
+          
+            <button class="pause">
+              <svg class="plyr-pause">
+                <path d="M6 1H3c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1zm6 0c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1h-3z"></path>
+              </svg>
+            </button>
+            <button class="play">
+              <svg class="plyr-play">
+                <path d="M15.562 8.1L3.87.225c-.818-.562-1.87 0-1.87.9v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z"></path>
+              </svg>
+            </button>
+            <button class="btn-prev">
+              <svg class="prev">
+                <path d="M23.3 5.3l-8.2 4.8V6.7c0-1.3-.8-1.9-1.8-1.3L6.1 9.5V7.1c0-1.1-.9-2-2-2h-1c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2v-2.4l7.2 4.2c1 .6 1.8 0 1.8-1.3v-3.5l8.2 4.8c1 .6 1.8 0 1.8-1.3V6.7c0-1.4-.8-2-1.8-1.4z"></path>
+              </svg>
+            </button>
+            <div class="track"></div>
+            <button class="btn-next">
+              <svg class="next">
+                <path d="M23.1 5.1h-1c-1.1 0-2 .9-2 2v2.4l-7.2-4.2c-1-.6-1.8 0-1.8 1.3v3.5L2.9 5.3c-1-.6-1.8 0-1.8 1.3v12.9c0 1.3.8 1.9 1.8 1.3l8.2-4.8v3.5c0 1.3.8 1.9 1.8 1.3l7.2-4.2V19c0 1.1.9 2 2 2h1c1.1 0 2-.9 2-2V7c0-1-.9-1.9-2-1.9z"></path>
+              </svg>
+            </button>
+            <div class="audio-track"><div class="time"></div></div>
+            <p class="p-time">0:00</p>
+            <button class="btn-volume">
+              <svg class="volume">
+                <path d="M15.6 3.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4C15.4 5.9 16 7.4 16 9c0 1.6-.6 3.1-1.8 4.3-.4.4-.4 1 0 1.4.2.2.5.3.7.3.3 0 .5-.1.7-.3C17.1 13.2 18 11.2 18 9s-.9-4.2-2.4-5.7z"></path>
+                <path d="M11.282 5.282a.909.909 0 000 1.316c.735.735.995 1.458.995 2.402 0 .936-.425 1.917-.995 2.487a.909.909 0 000 1.316c.145.145.636.262 1.018.156a.725.725 0 00.298-.156C13.773 11.733 14.13 10.16 14.13 9c0-.17-.002-.34-.011-.51-.053-.992-.319-2.005-1.522-3.208a.909.909 0 00-1.316 0zm-7.496.726H.714C.286 6.008 0 6.31 0 6.76v4.512c0 .452.286.752.714.752h3.072l4.071 3.858c.5.3 1.143 0 1.143-.602V2.752c0-.601-.643-.977-1.143-.601L3.786 6.008z"></path>
+              </svg>
+            </button>
+            <input type="range" class="in-volume" value="50" min="0" max="100">
+            
+        </div>
+      </div>
+      <div class="container-game"></div>
+    </div>
+
+    <div class="footer">
+      <p>Все права защищены. Писать техподдержке на почту cataloguntitled@gmail.com.</p>
+    </div>
+  </div>
+  <audio src="music/Lumen - Три Пути.mp3"></audio>
+  <script type="module" src="script.js"></script>
+</body>
+
+</html>

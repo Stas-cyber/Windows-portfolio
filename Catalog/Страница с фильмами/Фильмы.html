@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        .container {
+            background-image: url('background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            padding-bottom: 20px;
+
+        }
+
+        .container-game {
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-rows: repeat(5, 335px);
+            grid-gap: 10px;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            background-color: #000;
+            position: fixed;
+            z-index: 999;
+            width: 100%;
+            height: 35px;
+        }
+
+        ul li {
+            display: block;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+        }
+
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(6, 25%);
+            align-items: center;
+            justify-items: center;
+            font-size: 1.5vw;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+        }
+
+        .menu-dropdown {
+            width: 100%;
+            background-color: #f0f1f5;
+            display: grid;
+            grid-template-columns: repeat(5, 20%);
+            align-items: center;
+            justify-items: center;
+            padding-top: 30px;
+        }
+
+        .dropbtn {
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            background: none;
+            border: none;
+            height: 40px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            height: 150px;
+            background-color: #f1f1f1;
+            width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            font-family: Arial, Helvetica, sans-serif;
+            z-index: 100;
+
+        }
+
+        .rating-label {
+            width: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content label {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            border: none;
+
+        }
+        .label-dropdown {
+            width: 129px;
+            transition: all 0.3s ease;
+        }
+        .searh {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            padding: 20px;
+        }
+
+        .searh-input {
+            width: 33%;
+            height: 30px;
+            border: none;
+            border-bottom: 4px solid #fff;
+            background: none;
+            font-size: 20px;
+            color: #fff;
+            outline: none;
+        }
+
+        .dropdown-content label:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .option {
+            width: 234px;
+            height: 335px;
+            opacity: 0.01;
+            position: absolute;
+            z-index: 99;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 22px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        h5 {
+            font-size: 27.5px;
+            padding-top: 90px;
+        }
+
+        .game {
+            width: 234px;
+            height: 335px;
+            margin: auto;
+            margin-top: 10px;
+        }
+
+        .img-game {
+            width: 234px;
+            height: 335px;
+            position: absolute;
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .option:hover {
+            background-color: rgb(228, 222, 222, 0.85);
+            opacity: 1;
+        }
+
+        .footer {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            height: 55px;
+            background-color: #000;
+            color: #fff;
+            font-size: 16pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .genre {
+            height: 210px;
+        }
+        .rating {
+            width: 70px;
+        }
+
+        .release {
+            width: 100px;
+        }
+        .label-year {
+            width: 50px;
+        }
+
+        .release,
+        .rating {
+            overflow-x: scroll;
+        }
+
+        @media (max-width: 1100px) {
+            .menu {
+                display: none;
+            }
+
+            .header {
+                grid-template-columns: 90% 10%;
+            }
+        }
+
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 25px;
+            }
+
+            .searh-input {
+                width: 50%;
+            }
+
+            .menu__btn {
+                top: 2px;
+            }
+
+            .dropbtn {
+                font-size: 3vw;
+            }
+        }
+
+        @media (max-width: 540px) {
+
+            .game,
+            .img-game,
+            .option {
+                width: 156px;
+                height: 223px;
+            }
+            h5 {
+                font-size: 14px;
+            }
+            .option {
+                font-size: 12px;
+            }
+
+            .container-game {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                grid-template-rows: repeat(5, 230px);
+                grid-gap: 0px;
+            }
+
+            .dropbtn {
+                height: 30px;
+            }
+
+            /*.menu-dropdown {
+        height: 30px;
+    }*/
+            .searh-input {
+                width: 75%;
+            }
+        }
+        @media (max-width: 440px) {
+            .footer {
+            font-size: 12pt; 
+        }
+        }
+        @media (max-width: 330px) {
+            .header {
+                grid-template-columns: 95% 5%;
+            }
+        }
+
+        #menu__toggle {
+            display: none;
+            opacity: 0;
+        }
+
+        #menu__toggle:checked~.menu__btn>span {
+            transform: rotate(45deg);
+        }
+
+        #menu__toggle:checked~.menu__btn>span::before {
+            top: 0;
+            transform: rotate(0);
+        }
+
+        #menu__toggle:checked~.menu__btn>span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+        #menu__toggle:checked~.menu__box {
+            visibility: visible;
+            left: 0;
+        }
+
+        .menu__btn {
+            display: none;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 5px;
+            right: 40px;
+            min-width: 20px;
+            height: 26px;
+
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+
+        .menu__item {
+            display: none;
+            padding: 12px 24px;
+
+            color: #333;
+
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+
+            text-decoration: none;
+
+            transition-duration: .25s;
+        }
+
+        .menu__item:hover {
+            background-color: #CFD8DC;
+        }
+
+        .menu__box {
+            display: none;
+        }
+
+        @media (max-width: 1100px) {
+            .menu__item {
+                display: block;
+            }
+
+            .menu__btn>span,
+            .menu__btn>span::before,
+            .menu__btn>span::after {
+                display: block;
+                position: absolute;
+
+                width: 35px;
+                height: 3px;
+
+                background-color: #fff;
+
+                transition-duration: .25s;
+            }
+
+            .menu__btn>span::before {
+                content: '';
+                top: -8px;
+            }
+
+            .menu__btn>span::after {
+                content: '';
+                top: 8px;
+            }
+
+            .menu__box {
+                display: block;
+                position: fixed;
+                visibility: hidden;
+                top: 0;
+                left: 100%;
+
+                width: 300px;
+                height: 100%;
+
+                margin-left: 72.5%;
+                padding: 80px 0;
+
+                list-style: none;
+
+                background-color: #ECEFF1;
+                box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+
+                transition-duration: .25s;
+                z-index: 999;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+            .menu__btn {
+                top: 2px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .menu__box {
+
+
+                margin-left: 55%;
+
+            }
+
+        }
+
+        @media (max-width: 330px) {
+            .menu__btn {
+                margin-right: -20px;
+            }
+
+            .menu__btn>span,
+            .menu__btn>span::before,
+            .menu__btn>span::after {
+                width: 30px;
+            }
+        }
+
+        /* для элемента input c type="checkbox" */
+        .custom-checkbox {
+            position: absolute;
+            z-index: -1;
+            opacity: 0;
+        }
+
+        /* для элемента label, связанного с .custom-checkbox */
+        .custom-checkbox+label {
+            display: inline-flex;
+            align-items: center;
+            user-select: none;
+        }
+
+        /* создание в label псевдоэлемента before со следующими стилями */
+        .custom-checkbox+label::before {
+            content: '';
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            flex-shrink: 0;
+            flex-grow: 0;
+            border: 1px solid #adb5bd;
+            border-radius: 0.25em;
+            margin-right: 0.5em;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 50% 50%;
+        }
+
+        /* стили при наведении курсора на checkbox */
+        .custom-checkbox:not(:disabled):not(:checked)+label:hover::before {
+            border-color: #b3d7ff;
+        }
+
+        /* стили для активного чекбокса (при нажатии на него) */
+        .custom-checkbox:not(:disabled):active+label::before {
+            background-color: #b3d7ff;
+            border-color: #b3d7ff;
+        }
+
+        /* стили для чекбокса, находящегося в фокусе */
+        .custom-checkbox:focus+label::before {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        /* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+        .custom-checkbox:focus:not(:checked)+label::before {
+            border-color: #80bdff;
+        }
+
+        /* стили для чекбокса, находящегося в состоянии checked */
+        .custom-checkbox:checked+label::before {
+            border-color: #0b76ef;
+            background-color: #0b76ef;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+        }
+
+        /* стили для чекбокса, находящегося в состоянии disabled */
+        .custom-checkbox:disabled+label::before {
+            background-color: #e9ecef;
+        }
+
+        .checkbox {
+            margin-bottom: 1em;
+        }
+    </style>
+    <title>Фильмы</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1> <a href="../Начальная страница.html">Каталог без названия</a> </h1>
+        <ul class="menu">    
+                <li> <a href="#">Фильмы</a> </li>
+                <li> <a href="../Страница с играми/Игры.html">Игры</a> </li>
+                <li><a href="../Страница с книгами/Книги.html">Книги</a> </li>
+                <li><a href="../Страница с музыкой/Музыка.html">Музыка</a> </li>
+        </ul>
+    </div>
+    <div class="hamburger">
+        <input id="menu__toggle" type="checkbox">
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <ul class="menu__box">
+            <li> <a class="menu__item" href="#">Фильмы</a> </li>
+            <li> <a class="menu__item" href="../Страница с играми/Игры.html">Игры</a> </li>
+            <li><a class="menu__item" href="../Страница с книгами/Книги.html">Книги</a> </li>
+            <li><a class="menu__item" href="../Страница с музыкой/Музыка.html">Музыка</a> </li>
+        </ul>
+    </div>
+    <div class="menu-dropdown">
+        <div class="dropdown">
+            <button class="dropbtn">Жанр</button>
+            <div class="dropdown-content genre">
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-1" name="color-1" value="Боевик">
+                    <label class="label-dropdown" for="color-1">Боевик</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-2" name="color-2" value="Фантастика">
+                    <label class="label-dropdown" for="color-2">Фантастика</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-3" name="color-3" value="Приключения">
+                    <label class="label-dropdown" for="color-3">Приключения</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-17" name="color-17" value="Триллер">
+                    <label class="label-dropdown" for="color-17">Триллер</label>
+                </div>
+                <button class="btn-genre"></button>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Страна</button>
+            <div class="dropdown-content country">
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-4" name="color-4" value="США">
+                    <label class="label-dropdown" for="color-4">США</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-5" name="color-5" value="Великобритания">
+                    <label class="label-dropdown" for="color-5">Великобритания</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-6" name="color-6" value="Россия">
+                    <label class="label-dropdown" for="color-6">Россия</label>
+                </div>
+                <button class="btn-genre"></button>
+            </div>
+        </div>
+        <button class="dropbtn new">Новые</button>
+        <div class="dropdown">
+            <button class="dropbtn">Год выхода</button>
+            <div class="dropdown-content release">
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-7" name="color-7" value="2021">
+                    <label class="label-dropdown label-year" for="color-7">2021</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-8" name="color-8" value="2020">
+                    <label class="label-dropdown label-year" for="color-8">2020</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-9" name="color-9" value="2019">
+                    <label class="label-dropdown label-year" for="color-9">2019</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-10" name="color-10" value="2018">
+                    <label class="label-dropdown label-year" for="color-10">2018</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-11" name="color-11" value="2017">
+                    <label class="label-dropdown label-year" for="color-11">2017</label>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Оценки</button>
+            <div class="dropdown-content rating">
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-12" name="color-12" value="5">
+                    <label class="rating-label" for="color-12">5</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-13" name="color-13" value="4">
+                    <label class="rating-label" for="color-13">4</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-14" name="color-14" value="3">
+                    <label class="rating-label" for="color-14">3</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-15" name="color-15" value="2">
+                    <label class="rating-label" for="color-15">2</label>
+                </div>
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-16" name="color-16" value="1">
+                    <label class="rating-label" for="color-16">1</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="searh">
+            <input type="text" class="searh-input" value="Поиск фильмов по каталогу" onclick="this.select();">
+        </div>
+        <div class="container-game">
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Все права защищены. Писать техподдержке на почту cataloguntitled@gmail.com.</p>
+    </div>
+    <script>
+        const DATA = [
+            {
+                img: "https://resizer.mail.ru/p/421e9cf5-6505-5499-9915-372e5d22e07a/AAAC1Nz8usB47mZSLh2_AY2Jgs-ueenBfcjWppa6lymq_WWg_ySkapoLBOgPeBGP5FwwT-gT-8Xp8CqXo81Mqk4n3sI.jpg",
+                name: 'Марсианин',
+                genre: 'Фантастика',
+                country: 'Великобритания',
+                release: "2018",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/25da8b46-08ec-5413-afde-d37840c372db/AAACiM9tjWVSqAAOr4SydvEdVWlXRQvBpnDF525R2nbsjWy6vM4eLADyMEmWKsbY6vqbCMbwQ0AskUHxMXdLM6kRqMk.jpg",
+                name: 'Мстители: Война бесконечности',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2018",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/776f8e45-c6b5-5233-9691-f2d82de3e14a/AAACl6wKdMOLnW88MJs31wY5Cd6EWpAe2VmCr54q5GanDlBRmeTyTAdFpIS-rBR6n2dvTzDdWU1wGnZkkMyPXcvcpAM.jpg",
+                name: 'Лига справедливости Зака Снайдера',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2021",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/aff621b4-d3a8-5825-ae90-209305ad9780/AAACaKt3THuIuR-JtiiyUMvOFvVlJCoVgzHw_l5wMAqPUwDPI6ZTz4irz14yej0xuCk4OJjVC3iCB57DdRHMKVvXd40.jpg",
+                name: 'Майор Гром: Чумной Доктор',
+                genre: 'Приключения',
+                country: 'Россия',
+                release: "2020",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/c29f9650-e6f5-52b6-92aa-925380e69a8b/AAACd_cmRCbvWDAMaq2gag4hjnweI_feTEyTJF4ZTSoO_XiMwdxh5BVi22li9yma6HIqceQ0VEPMEp_zxn1SmXYrNuM.jpg",
+                name: 'Джокер',
+                genre: 'Триллер',
+                country: 'США',
+                release: "2020",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/421e9cf5-6505-5499-9915-372e5d22e07a/AAAC1Nz8usB47mZSLh2_AY2Jgs-ueenBfcjWppa6lymq_WWg_ySkapoLBOgPeBGP5FwwT-gT-8Xp8CqXo81Mqk4n3sI.jpg",
+                name: 'Марсианин',
+                genre: 'Фантастика',
+                country: 'Великобритания',
+                release: "2018",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/25da8b46-08ec-5413-afde-d37840c372db/AAACiM9tjWVSqAAOr4SydvEdVWlXRQvBpnDF525R2nbsjWy6vM4eLADyMEmWKsbY6vqbCMbwQ0AskUHxMXdLM6kRqMk.jpg",
+                name: 'Мстители: Война бесконечности',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2018",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/776f8e45-c6b5-5233-9691-f2d82de3e14a/AAACl6wKdMOLnW88MJs31wY5Cd6EWpAe2VmCr54q5GanDlBRmeTyTAdFpIS-rBR6n2dvTzDdWU1wGnZkkMyPXcvcpAM.jpg",
+                name: 'Лига справедливости Зака Снайдера',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2021",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/aff621b4-d3a8-5825-ae90-209305ad9780/AAACaKt3THuIuR-JtiiyUMvOFvVlJCoVgzHw_l5wMAqPUwDPI6ZTz4irz14yej0xuCk4OJjVC3iCB57DdRHMKVvXd40.jpg",
+                name: 'Майор Гром: Чумной Доктор',
+                genre: 'Приключения',
+                country: 'Россия',
+                release: "2020",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/c29f9650-e6f5-52b6-92aa-925380e69a8b/AAACd_cmRCbvWDAMaq2gag4hjnweI_feTEyTJF4ZTSoO_XiMwdxh5BVi22li9yma6HIqceQ0VEPMEp_zxn1SmXYrNuM.jpg",
+                name: 'Джокер',
+                genre: 'Триллер',
+                country: 'США',
+                release: "2020",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/421e9cf5-6505-5499-9915-372e5d22e07a/AAAC1Nz8usB47mZSLh2_AY2Jgs-ueenBfcjWppa6lymq_WWg_ySkapoLBOgPeBGP5FwwT-gT-8Xp8CqXo81Mqk4n3sI.jpg",
+                name: 'Марсианин',
+                genre: 'Фантастика',
+                country: 'Великобритания',
+                release: "2018",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/25da8b46-08ec-5413-afde-d37840c372db/AAACiM9tjWVSqAAOr4SydvEdVWlXRQvBpnDF525R2nbsjWy6vM4eLADyMEmWKsbY6vqbCMbwQ0AskUHxMXdLM6kRqMk.jpg",
+                name: 'Мстители: Война бесконечности',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2018",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/776f8e45-c6b5-5233-9691-f2d82de3e14a/AAACl6wKdMOLnW88MJs31wY5Cd6EWpAe2VmCr54q5GanDlBRmeTyTAdFpIS-rBR6n2dvTzDdWU1wGnZkkMyPXcvcpAM.jpg",
+                name: 'Лига справедливости Зака Снайдера',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2021",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/aff621b4-d3a8-5825-ae90-209305ad9780/AAACaKt3THuIuR-JtiiyUMvOFvVlJCoVgzHw_l5wMAqPUwDPI6ZTz4irz14yej0xuCk4OJjVC3iCB57DdRHMKVvXd40.jpg",
+                name: 'Майор Гром: Чумной Доктор',
+                genre: 'Приключения',
+                country: 'Россия',
+                release: "2020",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/c29f9650-e6f5-52b6-92aa-925380e69a8b/AAACd_cmRCbvWDAMaq2gag4hjnweI_feTEyTJF4ZTSoO_XiMwdxh5BVi22li9yma6HIqceQ0VEPMEp_zxn1SmXYrNuM.jpg",
+                name: 'Джокер',
+                genre: 'Триллер',
+                country: 'США',
+                release: "2020",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/421e9cf5-6505-5499-9915-372e5d22e07a/AAAC1Nz8usB47mZSLh2_AY2Jgs-ueenBfcjWppa6lymq_WWg_ySkapoLBOgPeBGP5FwwT-gT-8Xp8CqXo81Mqk4n3sI.jpg",
+                name: 'Марсианин',
+                genre: 'Фантастика',
+                country: 'Великобритания',
+                release: "2018",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/25da8b46-08ec-5413-afde-d37840c372db/AAACiM9tjWVSqAAOr4SydvEdVWlXRQvBpnDF525R2nbsjWy6vM4eLADyMEmWKsbY6vqbCMbwQ0AskUHxMXdLM6kRqMk.jpg",
+                name: 'Мстители: Война бесконечности',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2018",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/776f8e45-c6b5-5233-9691-f2d82de3e14a/AAACl6wKdMOLnW88MJs31wY5Cd6EWpAe2VmCr54q5GanDlBRmeTyTAdFpIS-rBR6n2dvTzDdWU1wGnZkkMyPXcvcpAM.jpg",
+                name: 'Лига справедливости Зака Снайдера',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2021",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/aff621b4-d3a8-5825-ae90-209305ad9780/AAACaKt3THuIuR-JtiiyUMvOFvVlJCoVgzHw_l5wMAqPUwDPI6ZTz4irz14yej0xuCk4OJjVC3iCB57DdRHMKVvXd40.jpg",
+                name: 'Майор Гром: Чумной Доктор',
+                genre: 'Приключения',
+                country: 'Россия',
+                release: "2020",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/c29f9650-e6f5-52b6-92aa-925380e69a8b/AAACd_cmRCbvWDAMaq2gag4hjnweI_feTEyTJF4ZTSoO_XiMwdxh5BVi22li9yma6HIqceQ0VEPMEp_zxn1SmXYrNuM.jpg",
+                name: 'Джокер',
+                genre: 'Триллер',
+                country: 'США',
+                release: "2020",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/421e9cf5-6505-5499-9915-372e5d22e07a/AAAC1Nz8usB47mZSLh2_AY2Jgs-ueenBfcjWppa6lymq_WWg_ySkapoLBOgPeBGP5FwwT-gT-8Xp8CqXo81Mqk4n3sI.jpg",
+                name: 'Марсианин',
+                genre: 'Фантастика',
+                country: 'Великобритания',
+                release: "2018",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/25da8b46-08ec-5413-afde-d37840c372db/AAACiM9tjWVSqAAOr4SydvEdVWlXRQvBpnDF525R2nbsjWy6vM4eLADyMEmWKsbY6vqbCMbwQ0AskUHxMXdLM6kRqMk.jpg",
+                name: 'Мстители: Война бесконечности',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2018",
+                rating: "5"
+            },
+            {
+                img: "https://resizer.mail.ru/p/776f8e45-c6b5-5233-9691-f2d82de3e14a/AAACl6wKdMOLnW88MJs31wY5Cd6EWpAe2VmCr54q5GanDlBRmeTyTAdFpIS-rBR6n2dvTzDdWU1wGnZkkMyPXcvcpAM.jpg",
+                name: 'Лига справедливости Зака Снайдера',
+                genre: 'Боевик',
+                country: 'США',
+                release: "2021",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/aff621b4-d3a8-5825-ae90-209305ad9780/AAACaKt3THuIuR-JtiiyUMvOFvVlJCoVgzHw_l5wMAqPUwDPI6ZTz4irz14yej0xuCk4OJjVC3iCB57DdRHMKVvXd40.jpg",
+                name: 'Майор Гром: Чумной Доктор',
+                genre: 'Приключения',
+                country: 'Россия',
+                release: "2020",
+                rating: "4"
+            },
+            {
+                img: "https://resizer.mail.ru/p/c29f9650-e6f5-52b6-92aa-925380e69a8b/AAACd_cmRCbvWDAMaq2gag4hjnweI_feTEyTJF4ZTSoO_XiMwdxh5BVi22li9yma6HIqceQ0VEPMEp_zxn1SmXYrNuM.jpg",
+                name: 'Джокер',
+                genre: 'Триллер',
+                country: 'США',
+                release: "2020",
+                rating: "5"
+            },
+        ]
+
+        const menuDropdown = document.querySelector('.menu-dropdown')
+        const searh = document.querySelector('.searh-input');
+        const newBtn = document.querySelector('.new');
+
+        let funFilterGame = () => {
+            let country = [...menuDropdown.querySelectorAll('.country input:checked')].map(n => n.value);
+            let genre = [...menuDropdown.querySelectorAll('.genre input:checked')].map(n => n.value);
+            let release = [...menuDropdown.querySelectorAll('.release input:checked')].map(n => n.value);
+            let rating = [...menuDropdown.querySelectorAll('.rating input:checked')].map(n => n.value);
+
+            funGameOutput(DATA.filter(n =>
+                (!country.length || country.includes(n.country)) &&
+                (!genre.length || genre.includes(n.genre)) &&
+                (!release.length || release.includes(n.release)) &&
+                (!rating.length || rating.includes(n.rating))
+            ))
+        }
+
+
+        menuDropdown.addEventListener('input', funFilterGame);
+
+        let funGameOutput = (data) => {
+            document.querySelector('.container-game').innerHTML = data.map((n, index) => `
+<div class="game">
+  <img class="img-game" src="${n.img}">
+    <div class="option">
+      <h5 class="name">${n.name}</h5>
+      <p class="p-release">Год выхода: ${n.release}</p>
+      <p class="country">Страна: ${n.country}</p>
+      <p class="p-genre">Жанр: ${n.genre}</p>
+      <p class="p-rating">Оценка: ${n.rating}</p>
+    </div>
+</div>`).join('');
+        }
+        searh.addEventListener('keydown', () => {
+            if (event.keyCode == 13) {
+                if (searh.value !== '') {
+                    funGameOutput(DATA.filter(n =>
+                        (searh.value == n.name)))
+                } else {
+                    funGameOutput(DATA);
+                }
+
+            }
+        })
+        let i = 1;
+        newBtn.addEventListener('click', () => {
+            i++
+            let k = i % 2
+            if (k === 0) {
+                funGameOutput(DATA.filter(n =>
+                    (n.release === "2021")
+                ))
+            } else if (k === 1) {
+                funGameOutput(DATA)
+            }
+
+        })
+        funGameOutput(DATA);
+
+
+    </script>
+</body>
+
+</html>

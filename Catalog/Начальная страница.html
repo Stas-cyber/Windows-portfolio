@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог без названия</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body {
+            max-width: 1920px;
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            background-color: #000;
+        }
+
+        ul li {
+            display: block;
+        }
+
+        h1 {
+            font-size: 30pt;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+        }
+
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(6, 25%);
+            align-items: center;
+            justify-items: center;
+            font-size: 1.5em;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+        }
+
+        .block-container {
+            height: 652px;
+            background-color: #f0f1f5;
+        }
+
+        .img-header {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .footer {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            height: 55px;
+            background-color: #000;
+            color: #fff;
+            font-size: 16pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .text-container {
+            position: absolute;
+            left: 17%;
+            display: grid;
+            grid-template-columns: 17vw 17vw;
+            grid-template-rows: 250% 50px;
+            grid-column-gap: 115%;
+            font-size: 4vw;
+            z-index: 100;
+        }
+
+        .text {
+            color: #000;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .game-img {
+            width: 468px;
+            height: 303px;
+        }
+
+        .books-img {
+            width: 468px;
+            height: 313px;
+        }
+
+        .film-img {
+            width: 110%;
+            height: 110%;
+        }
+
+        .musik-img {
+            width: 468px;
+            height: 332px;
+        }
+
+        .mobile-img-header {
+            display: grid;
+            grid-template-columns: repeat(2, 303px);
+            grid-template-rows: repeat(2, 303px);
+            grid-column-gap: 80px;
+            margin-left: -150px;
+            margin-top: 25px;
+            z-index: 99;
+        }
+
+        @media (max-width: 1500px) {
+            .text-container {
+                grid-template-columns: 17vw 17vw;
+            }
+        }
+
+        @media (max-width: 1300px) {
+            .text3 {
+                margin-left: 5%;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .header {
+                width: 100%;
+                position: fixed;
+                z-index: 1000;
+
+            }
+
+            .menu {
+                display: none;
+            }
+
+            .text-container {
+                display: grid;
+                grid-template-columns: 20vw;
+                grid-template-rows: 303px 303px 313px;
+            }
+
+            .block-container {
+                height: 100%;
+                background-color: #f0f1f5;
+            }
+
+            .mobile-img-header {
+                align-items: center;
+                justify-items: center;
+                grid-template-columns: repeat(1, 303px);
+                grid-template-rows: repeat(4, 303px);
+                margin-left: 300px;
+            }
+
+            .text {
+                margin-left: 5px;
+            }
+
+            .text1 {
+                margin-top: 50px;
+            }
+        }
+
+        @media (max-width: 870px) {
+            .header {
+                display: grid;
+                grid-template-columns: 92% 8%;
+                background-color: #000;
+            }
+        }
+
+        @media (max-width: 790px) {
+            .text-container {
+                left: 10%;
+            }
+
+            .mobile-img-header {
+                margin-left: 100px;
+            }
+        }
+
+        @media (max-width: 615px) {
+            .text-container {
+                left: 20%;
+                justify-items: center;
+            }
+
+            .mobile-img-header {
+                margin-left: 0px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-img {
+                width: 312px;
+                height: 203px;
+            }
+
+            .books-img {
+                width: 312px;
+                height: 208px;
+            }
+
+            .film-img {
+                width: 222px;
+                height: 222px;
+            }
+
+            .musik-img {
+                width: 312px;
+                height: 221px;
+            }
+
+            h1 {
+                font-size: 7.5vw;
+            }
+
+            .text-container {
+                margin-top: 40px;
+                grid-template-rows: 203px 208px 242px;
+            }
+
+            .mobile-img-header {
+                grid-template-rows: 203px 208px 242px 221px;
+            }
+
+            .text1 {
+                margin-top: 0px;
+            }
+
+            .header {
+                height: 35px;
+            }
+            .footer {
+            font-size: 12pt;
+        }
+        }
+
+
+        #menu__toggle {
+            display: none;
+            opacity: 0;
+        }
+
+        #menu__toggle:checked~.menu__btn>span {
+            transform: rotate(45deg);
+        }
+
+        #menu__toggle:checked~.menu__btn>span::before {
+            top: 0;
+            transform: rotate(0);
+        }
+
+        #menu__toggle:checked~.menu__btn>span::after {
+            top: 0;
+            transform: rotate(90deg);
+        }
+
+        #menu__toggle:checked~.menu__box {
+            visibility: visible;
+            left: 0;
+        }
+
+        .menu__btn {
+            display: none;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 10px;
+            right: 20px;
+
+            width: 26px;
+            height: 26px;
+
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+
+        .menu__item {
+            display: none;
+            padding: 12px 24px;
+
+            color: #333;
+
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+
+            text-decoration: none;
+
+            transition-duration: .25s;
+        }
+
+        .menu__item:hover {
+            background-color: #CFD8DC;
+        }
+        .menu__box {
+                display: none;
+            }
+        @media (max-width: 1100px) {
+            .menu__item {
+                display: block;
+            }
+
+            .menu__btn>span,
+            .menu__btn>span::before,
+            .menu__btn>span::after {
+                display: block;
+                position: absolute;
+
+                width: 100%;
+                height: 3px;
+
+                background-color: #fff;
+
+                transition-duration: .25s;
+            }
+
+            .menu__btn>span::before {
+                content: '';
+                top: -8px;
+            }
+
+            .menu__btn>span::after {
+                content: '';
+                top: 8px;
+            }
+
+            .menu__box {
+                display: block;
+                position: fixed;
+                visibility: hidden;
+                top: 0;
+                left: 200%;
+
+                width: 400px;
+                height: 100%;
+
+                margin-left: 72.5%;
+                padding: 80px 0;
+
+                list-style: none;
+
+                background-color: #ECEFF1;
+                box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+
+                transition-duration: .25s;
+                z-index: 999;
+            }
+            @media (max-width: 480px) {
+                .menu__box {
+                margin-left: 50%;
+            }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Каталог без названия</h1>
+        <ul class="menu">
+            <li> <a href="Страница с фильмами/Фильмы.html">Фильмы</a> </li>
+            <li> <a href="Страница с играми/Игры.html">Игры</a> </li>
+            <li> <a href="Страница с книгами/Книги.html">Книги</a> </li>
+            <li> <a href="Страница с музыкой/Музыка.html">Музыка</a> </li>
+        </ul>
+    </div>
+    <div class="hamburger">
+        <input id="menu__toggle" type="checkbox">
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+
+        <ul class="menu__box">
+            <li> <a class="menu__item" href="Страница с фильмами/Фильмы.html">Фильмы</a> </li>
+            <li> <a class="menu__item" href="Страница с играми/Игры.html">Игры</a> </li>
+            <li><a class="menu__item" href="Страница с книгами/Книги.html">Книги</a> </li>
+            <li><a class="menu__item" href="Страница с музыкой/Музыка.html">Музыка</a> </li>
+        </ul>
+    </div>
+
+    <div class="block-container">
+
+        <div class="text-container">
+            <a href="Страница с фильмами/Фильмы.html">
+                <p class="text1 text">Фильмы</p>
+            </a>
+            <a href="Страница с играми/Игры.html">
+                <p class="text2 text">Игры</p>
+            </a>
+            <a href="Страница с книгами/Книги.html">
+                <p class="text3 text">Книги</p>
+            </a>
+            <a href="Страница с музыкой/Музыка.html">
+                <p class="text4 text">Музыка</p>
+            </a>
+        </div>
+        <div class="img-header">
+            <div class="mobile-img-header">
+                <img src="https://docs.google.com/uc?id=1EzUOJ70AgxR6C1EiXn6mRv4ZZpD7oCdx" alt="" class="mobile-img film-img">
+                <img src="https://docs.google.com/uc?id=1Fg4cVe8gn5OXc6VGJkSB6isrT7mi5R2j" alt="" class="mobile-img game-img">
+                <img src="https://docs.google.com/uc?id=14426CPGlFZLf3A1mHeFDbglq9FzWYIFK" alt="" class="mobile-img books-img">
+                <img src="https://docs.google.com/uc?id=15fghX1uV4gTXd60EEIBJWzKQlEEvJcYE" alt="" class="mobile-img musik-img">
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <p>Все права защищены. Писать техподдержке на почту cataloguntitled@gmail.com.</p>
+    </div>
+</body>
+
+</html>

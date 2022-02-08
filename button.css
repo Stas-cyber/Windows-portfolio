@@ -1,0 +1,32 @@
+.fullscreen-app {
+    width: 10px;
+    height: 10px;
+    border: black solid 1px;
+    margin-left: 20px;
+}
+.hide-app {
+    width: 13px;
+    border-top: black solid 1px;
+    margin-left: 20px;
+}
+.hide-btn:hover, .fullscreen-btn:hover {
+    background: rgba(197, 197, 197, 0.993);
+}
+.fullscreen-btn, .hide-btn, .style-close  {
+    width: 53.5px;
+    height: 30px;
+    margin: 0px;
+    opacity: 1;
+    display: grid;
+    align-items: center;
+}
+.img-close {
+    width: 15px;
+    z-index: 1000;
+    margin-left: 20px;
+}
+
+.style-close:hover {
+    background-color: rgb(255, 0, 0);  
+}
+

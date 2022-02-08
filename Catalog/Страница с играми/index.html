@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkbox.css">
+    <link rel="stylesheet" href="menu-style.css">
+    <title>Игры</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Каталог без названия</h1>
+        <ul class="menu">
+            <li> <a href="./Страница с фильмами/index.html">Фильмы</a> </li>
+            <li> <a href="https://drive.google.com/uc?export=download&id=1WFtML4so4Ige-EHS9z-8V2SF6xNeJy7b" target="_blank">Игры</a> </li>
+            <li> <a href="#">Книги</a> </li>
+            <li> <a href="#">Музыка</a> </li>
+        </ul>  
+    </div>
+    <div class="hamburger">
+      <input id="menu__toggle" type="checkbox">
+      <label class="menu__btn" for="menu__toggle">
+          <span></span>
+      </label>
+
+      <ul class="menu__box">
+          <li><a class="menu__item"href="/Страница с фильмами/index.html">Фильмы</a> </li>
+          <li><a class="menu__item" href="#">Игры</a> </li>
+          <li><a class="menu__item" href="#">Книги</a> </li>
+          <li><a class="menu__item" href="#">Музыка</a> </li>
+      </ul>
+  </div>
+    <div class="menu-dropdown">
+        <div class="dropdown">
+            <button class="dropbtn">Платформа</button>
+            <div class="dropdown-content platform">
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-1" name="color-1" value="PC">
+                    <label for="color-1">PC</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-2" name="color-2" value="PlayStation 4">
+                    <label for="color-2">PlayStation 4</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-3" name="color-3" value="Xbox One">
+                    <label for="color-3">Xbox One</label>
+                  </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Жанр</button>
+            <div class="dropdown-content genre">
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-4" name="color-4" value="action">
+                    <label for="color-4">Экшен</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-5" name="color-5" value="simulator">
+                    <label for="color-5">Симулятор</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-6" name="color-6" value="adventures">
+                    <label for="color-6">Приключения</label>
+                  </div>
+              <button class="btn-genre" ></button>
+            </div>
+        </div>  
+            <button class="dropbtn new">Новые</button>
+        <div class="dropdown">
+            <button class="dropbtn">Год выхода</button>
+            <div class="dropdown-content release">
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-7" name="color-7" value="2021">
+                    <label for="color-7">2021</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-8" name="color-8" value="2020">
+                    <label for="color-8">2020</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-9" name="color-9" value="2019">
+                    <label for="color-9">2019</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-10" name="color-10" value="2018">
+                    <label for="color-10">2018</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-11" name="color-11" value="2017">
+                    <label for="color-11">2017</label>
+                  </div>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Оценки</button>
+            <div class="dropdown-content rating">
+                <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-12" name="color-12" value="5">
+                    <label class="rating-label" for="color-12">5</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-13" name="color-13" value="4">
+                    <label class="rating-label" for="color-13">4</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-14" name="color-14" value="3">
+                    <label class="rating-label" for="color-14">3</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-15" name="color-15" value="2">
+                    <label class="rating-label" for="color-15">2</label>
+                  </div>
+                  <div class="checkbox">
+                    <input class="custom-checkbox" type="checkbox" id="color-16" name="color-16" value="1">
+                    <label class="rating-label" for="color-16">1</label>
+                  </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+      <div class="searh">
+        <input type="text" class="searh-input" value="Поиск игр по каталогу" onclick="this.select();">
+      </div>
+        <div class="container-game"></div>
+    </div>
+    
+    <div class="footer">
+        <p>Все права защищены. Писать техподдержке на почту cataloguntitled@gmail.com.</p>
+    </div>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
